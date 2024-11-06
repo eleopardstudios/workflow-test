@@ -1,0 +1,21 @@
+name: Deploy Angular Project
+defaults:
+  run:
+    working-directory: ./insightdx.ui/
+
+on: 
+  workflow_call:
+    inputs: 
+      image-full-name:
+        required: true
+        type: string
+jobs:
+  show-info:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display Environment Info
+    token: ${{ secrets.TOKEN }}
+    image-path: ${{ inputs.image-full-name }}
+    run: |
+      echo "Image Path: $image-path"
+      echo "Token : $token"
