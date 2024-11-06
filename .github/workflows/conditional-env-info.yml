@@ -20,8 +20,8 @@ jobs:
       - name: Print Message
         run: echo "Call resuable workflow with prod branch name"
     deploy-on-dev:
-      if: ${{ contains(github.ref, vars.DEV_ENV_BRANCH)  }} 
-      uses: eleopardstudios/workflow-test/.github/workflows/reusable-deploy-workflow.yml@develop
+      if: ${{ contains(github.ref, vars.DEV_ENV_BRANCH) }} 
+      uses: ./.github/workflows/reusable-deploy-workflow.yml
       with:
         image-full-name:  ${{ secrets.REGISTRY_LOGIN_SERVER }}/insightdx-ui:develop-${GITHUB_SHA::8}
       secrets: inherit

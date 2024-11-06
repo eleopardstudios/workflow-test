@@ -1,8 +1,4 @@
 name: Deploy Angular Project
-defaults:
-  run:
-    working-directory: ./insightdx.ui/
-
 on: 
   workflow_call:
     inputs: 
