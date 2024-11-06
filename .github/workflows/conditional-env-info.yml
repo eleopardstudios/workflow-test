@@ -23,5 +23,5 @@ jobs:
       if: ${{ contains(github.ref, vars.DEV_ENV_BRANCH) }} 
       uses: ./.github/workflows/reusable-deploy-workflow.yml
       with:
-        image-full-name:  "${GITHUB_SHA::8}"
+        image-full-name:  ${GITHUB_SHA::8}
       secrets: inherit
