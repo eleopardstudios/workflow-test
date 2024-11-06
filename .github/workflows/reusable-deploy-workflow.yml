@@ -8,10 +8,11 @@ on:
 jobs:
   show-info:
     runs-on: ubuntu-latest
-    steps:
-    - name: Display Environment Info
     token: ${{ secrets.TOKEN }}
     image-path: ${{ inputs.image-full-name }}
-    run: |
-      echo "Image Path: $image-path"
-      echo "Token : $token"
+    steps:
+    - name: Display Environment Info
+      run: |
+        echo "Image Path: $image-path"
+        echo "Token : $token"
+    
