@@ -1,0 +1,28 @@
+name: Environment Variables on Push
+on: push
+env: 
+  current_branch: ${{ github.ref }}
+  prod_env_branch: ${{ vars.PROD_ENV_BRANCH }}
+  dev_env_branch: ${{ vars.DEV_ENV_BRANCH }}
+jobs:
+    show-info:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Display Environment Info
+          run: |
+            echo "Current Branch: $current_branch"
+            echo "Production Branch Name : $prod_env_branch"
+            echo "Development Branch Name: $dev_env_branch"
+    deploy-on-prod:
+      if: vars.current_branch == vars.prod_env_branch
+      runs-on: ubuntu-latest
+      steps:
+      - name: Print Message
+        run: echo "Call resuable workflow with prod branch name"
+    deploy-on-dev:
+      if: vars.current_branch == vars.dev_env_branch
+      runs-on: ubuntu-latest
+      steps:
+      - name: Print Message
+        run: echo "Call resuable workflow with dev branch name"
+      
